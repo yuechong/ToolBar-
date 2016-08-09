@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>工具栏生成器</title>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" type="text/css" href="semantic.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="css/search.min.css">
+	<link rel="stylesheet" type="text/css" href="css/input.min.css">
+	<link rel="stylesheet" type="text/css" href="css/button.min.css">
+	<link rel="stylesheet" type="text/css" href="css/dropdown.min.css">
+	<link rel="stylesheet" type="text/css" href="css/icon.min.css"> -->
+
+	<link rel="stylesheet" type="text/css" href="themes/default/assets/fonts/icons.woff2">
+	<link rel="stylesheet" type="text/css" href="themes/default/assets/fonts/icons.woff">
+	<link rel="stylesheet" type="text/css" href="themes/default/assets/fonts/icons.ttf">
+	<script type="text/javascript" src="js/ToolBar.js"></script>
+</head>
+<body>
+<style type="text/css">
+	.ml4{
+		margin-left: 4px; 
+	}
+	.mt4{
+		margin-top: 4px; 
+	}
+	#box{
+		border: 1px solid #ccc;
+		width: 500px;
+		height: 300px;
+		padding: 10px;
+	}
+	#box button{
+		margin: 4px ;
+	}
+	
+	#box .ui.input .ml4{
+		margin-left: 4px; 
+	}
+	#box .ui.dropdown > .menu{
+		display: none;
+	}
+	#box .ui.dropdown:hover > .menu{
+		display: block;
+	}
+	#box .menu .item:hover  >.menu{
+		display: block;
+	}
+	#box .cp{
+		cursor: pointer;
+	}
+	#box .ui.dropdown{
+		margin:0 10px;
+	}
+</style>
+<div id="box">
+	
+</div>
+
+<script type="text/javascript">
+	//toolBar
+	var toolBarCrea = require("toolBar"); 
+	console.log(toolBarCrea);
+
+	var barBoxObj = document.getElementById("box");
+	var toolBar = [
+		{
+			text: "记录条数",
+			class: "mt4",
+			icon: "circular search link icon",
+			type: "input",
+			placeholder:"rows",
+			func:function(){
+				alert("input");
+			}
+		},
+		{
+			
+			class: "mt4",
+			icon: "circular search link icon",
+			type: "input",
+			placeholder:"rows",
+			func:function(){
+				alert("input");
+			}
+		},
+		{
+			text: "",
+			class: "ui primary icon button small",
+			icon: "add icon",
+			type: "button",
+			func:function(){
+				alert("button");
+			}
+		},
+		{
+			text: "提交",
+			class: "ui icon primary button",
+			icon: "cloud icon",
+			type: "button",
+			func:function(){
+				alert("添加");
+			}
+		},
+		{
+			text: "删除",
+			class: "ui labeled icon button",
+			icon: "remove icon",
+			type: "button",
+			
+		},
+		{
+			text: "okay",
+			class: "ui secondary button",
+			icon: "remove icon",
+			type: "button",
+			func: function(){
+				alert("okay");
+			}
+		},
+		{
+			text: "File",
+			class: "mt4",
+			icon: "dropdown icon",
+			type: "dropdown",
+			menu: [
+				{
+					text: "New",
+					icon: "dropdown icon",
+					menu:[
+						{
+							text: "SD",
+							menu: [
+								{
+									text: "FF",
+									icon: "icon add",
+									func: function(e){
+										e.stopPropagation();
+										alert("DD");
+									}
+								}
+							],
+							func:function(){
+								alert(1);
+							}
+						},
+						{
+							text: "BG",
+							func: function(){
+								alert("v");
+							}
+						}
+					]					
+				},
+				{
+					text:"open",
+					description: "ctrl + o",
+					func:function(){
+						alert(1);
+					}
+				},
+				{
+					text:"save as...",			
+					description: "ctrl + o",
+					func:function(){
+						alert(1);
+					}
+				},				
+				{
+					text:"make a cope",
+					icon: "folder icon",
+					func:function(){
+						alert(1);
+					}
+				}
+			]
+		}
+	];
+
+	
+	toolBarCrea(toolBar,barBoxObj);
+
+	var checkboxBar = [{
+		text: "记住密码",
+		type: "checkbox",
+		func: function(){
+			alert("checkbox");
+		}
+	}]; 
+	toolBarCrea(checkboxBar,barBoxObj);
+
+</script>
+</body>
+</html>
